@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithm Scanner Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Algorithm Scanner Pro</h1>
+    <input type="file" id="fileInput" accept=".txt,.py" />
+    <input type="text" id="searchTerm" placeholder="Highlight keyword..." />
+    <div class="controls">
+      <button id="downloadBtn">Download PDF</button>
+    </div>
+    <div id="complexity"></div>
+    <div class="code-wrapper">
+      <div id="lineNumbers" class="line-numbers"></div>
+      <pre id="output" class="code-box"></pre>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
