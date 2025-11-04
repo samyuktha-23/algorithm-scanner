@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const fileInput = document.getElementById('fileInput');
   const searchInput = document.getElementById('searchTerm');
+  const caseCheckbox = document.getElementById('caseSensitive');
   const downloadBtn = document.getElementById('downloadBtn');
   const output = document.getElementById('output');
   const lineNumbers = document.getElementById('lineNumbers');
@@ -24,12 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   searchInput.addEventListener('input', function () {
     const term = this.value.trim();
+    const caseSensitive = caseCheckbox.checked;
     if (!term) {
       output.innerHTML = output.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
       return;
     }
-    const regex = new RegExp(`(${term})`, 'gi');
-    output.innerHTML = output.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1'); // Clear old highlights
+    const flags = caseSensitive ? 'g' : 'gi';
+    const regex = new RegExp(`(${term})`, flags);
+    output.innerHTML = output.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
     output.innerHTML = output.innerHTML.replace(regex, '<span class="highlight">$1</span>');
   });
 
@@ -68,8 +71,5 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (loopCount >= 3) complexity = `O(n^${loopCount})`;
     complexityBox.textContent = `Estimated Time Complexity: ${complexity}`;
   }
-
-  window.toggleTheme = function () {
-    alert('Theme is fixed to stylish red and black!');
-  };
 });
+
