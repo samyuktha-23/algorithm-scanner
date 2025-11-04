@@ -9,18 +9,32 @@
 </head>
 <body>
   <div class="container">
-    <h1>Algorithm Scanner Pro</h1>
+    <header>
+      <img src="twilight-logo.png" alt="Twilight Treats" class="logo" />
+      <h1>Algorithm Scanner Pro</h1>
+    </header>
+
     <input type="file" id="fileInput" accept=".txt,.py" />
     <input type="text" id="searchTerm" placeholder="Highlight keyword..." />
+    <label><input type="checkbox" id="caseSensitive" /> Case sensitive</label>
+
     <div class="controls">
       <button id="downloadBtn">Download PDF</button>
     </div>
+
     <div id="complexity"></div>
+
     <div class="code-wrapper">
       <div id="lineNumbers" class="line-numbers"></div>
       <pre id="output" class="code-box"></pre>
     </div>
+
+    <footer>
+      <p>Created by Samyuktha M</p>
+    </footer>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+
